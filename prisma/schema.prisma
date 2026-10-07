@@ -1,0 +1,21 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql" 
+}
+
+//สร้างschema ของตารางใน db ที่เราจะทำงาน
+
+model Products {
+  id          Int      @id @default(autoincrement())
+  name        String   @default("")
+  description String   @default("")
+  price       Float    @default(0)
+  quantity    Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
